@@ -3,6 +3,9 @@
 source "$SCRIPT_DIR/git/git_utils.sh"
 
 
+
+# VERBOSE METHODS
+
 #creates a target branch ($2) from a source branch($1)
 create_branch_from() {
   echo "Criando a branch '$2' a partir de '$1'..."
@@ -43,6 +46,10 @@ merge_source_into_current() {
   git checkout "$current_branch"
   git merge "$1"
 }
+
+
+
+# SHORTCUTS
 
 #merges the current branch into the target branch
 d4c() {

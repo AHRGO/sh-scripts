@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# VERBOSE METHODS
+
 #verifies if a branch exists
 branch_exists() {
     git rev-parse --verify "$1" >/dev/null 2>&1
@@ -16,14 +18,14 @@ check_status() {
 
 
 
-
 ### LAB
-record_last_branch() {
+
+___record_last_branch() {
     # Armazena a branch atual em um arquivo .last_branch
     git branch --show-current > .last_branch
 }
 
-go_back_to_last_branch() {
+____go_back_to_last_branch() {
     if [ -f .last_branch ]; then
         last_branch=$(cat .last_branch)
         echo "Voltando para a branch '$last_branch'..."
@@ -34,13 +36,3 @@ go_back_to_last_branch() {
 }
 
 
-print_conditional() {
-  local function_to_execute="$1"
-  read -r response
-      response=$(echo "$response" | tr '[:upper:]' '[:lower:]') # converte a resposta para minúsculas
-      if [[ "$response" == "y" || -z "$response" ]]; then
-        "$function_to_execute"
-      else
-        echo "Operação cancelada. A branch '$2' não foi criada."
-      fi
-}
