@@ -1,23 +1,36 @@
 #!/bin/bash
 
 # VERBOSE METHODS
-reload_terminal_zshrc() {
-    source ~/.zshrc
+reload_terminal() {
+    if [[ "$SHELL" == */zsh ]]; then
+        source ~/.zshrc
+    elif [[ "$SHELL" == */bash ]]; then
+        source ~/.bashrc
+    else
+        echo "O shell $SHELL não é suportado"
+    fi
 }
 
-open_zsh_terminal() {
-    exec zsh
+open_terminal() {
+    if [[ "$SHELL" == */zsh ]]; then
+        exec zsh
+    elif [[ "$SHELL" == */bash ]]; then
+        exec bash
+    else
+        echo "O shell $SHELL não é suportado"
+    fi
+
 }
 
 
 
 # SHORTCUTS
-rldz() {
-    reload_terminal_zshrc
+rld() {
+    reload_terminal
 }
 
-opz() {
-    open_zsh_terminal
+opn() {
+    open_terminal
 }
 
 
