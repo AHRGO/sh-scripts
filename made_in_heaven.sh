@@ -26,8 +26,12 @@ verifies_and_import() {
 
 # IMPORTS
 
+## Alias File
+verifies_and_import ./ aliases.sh
+
 ## Linux
 verifies_and_import linux linux_utils.sh
+verifies_and_import linux shortcuts.sh
 
 ## Docker
 verifies_and_import docker docker_utils.sh
@@ -40,4 +44,5 @@ verifies_and_import flutter flutter_utils.sh
 
 ## Q+
 verifies_and_import app app_utils.sh
+
 
