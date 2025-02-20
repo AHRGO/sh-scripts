@@ -39,7 +39,7 @@ save_user_answers() {
 }
 
 
-
+# QUESTIONS SECTION
 project_type() {
     question_system_will_ask "tipo_de_projeto" "Qual é o tipo de projeto que você deseja criar?"
 }
@@ -49,14 +49,20 @@ language() {
 }
 
 
+# WRAPPER
+questions_to_ask_to_developer() {
+    project_type
+    language
+}
+
+
 devHelper(){
     # Limpar os arrays a cada nova execução
     declare -A USER_ANSWERS=()
     declare -a QUESTION_ORDER=()
 
 
-    project_type
-    language
+    questions_to_ask_to_developer
     save_user_answers
 
 }
