@@ -47,6 +47,20 @@ merge_source_into_current() {
   git merge "$1"
 }
 
+dirty_deeds_done_dirt_cheap() {
+  local target_branch="$2"
+
+  if check_status; then
+    if [ -z "$1" ]; then
+      merge_source_into_current "$target_branch" 
+    else
+      merge_into "$target_branch" "$1" 
+    fi
+  else 
+    echo "Por favor, commite ou faça stash das alterações antes de continuar."
+  fi
+}
+
 
 
 # SHORTCUTS
@@ -55,42 +69,25 @@ merge_source_into_current() {
 d4c() {
   local target_branch="homolog"
 
-  if check_status; then
-    if [ -z "$1" ]; then
-      merge_source_into_current "$target_branch" 
-    else
-      merge_into "$target_branch" "$1" 
-    fi
-  else 
-    echo "Por favor, commite ou faça stash das alterações antes de continuar."
-  fi
+  dirty_deeds_done_dirt_cheap "$1" "$target_branch"
 }
+
+d4clt() {
+  local target_branch="homologacao"
+
+  dirty_deeds_done_dirt_cheap "$1" "$target_branch"
+}
+
 
 lucy() {
   local target_branch="develop"
 
-  if check_status; then
-    if [ -z "$1" ]; then
-      merge_source_into_current "$target_branch" 
-    else
-      merge_into "$target_branch" "$1" 
-    fi
-  else 
-    echo "Por favor, commite ou faça stash das alterações antes de continuar."
-  fi
+  dirty_deeds_done_dirt_cheap "$1" "$target_branch"
 }
 
 lovetrain() {
   local target_branch="main"
 
-  if check_status; then
-    if [ -z "$1" ]; then
-      merge_source_into_current "$target_branch" 
-    else
-      merge_into "$target_branch" "$1" 
-    fi
-  else 
-    echo "Por favor, commite ou faça stash das alterações antes de continuar."
-  fi
+  dirty_deeds_done_dirt_cheap "$1" "$target_branch"
 }
 
