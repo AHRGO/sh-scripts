@@ -2,6 +2,9 @@
 
 # Nome do arquivo onde serão salvas as respostas.
 USER_TODO_FILE="taskList.txt"
+HOME_PATH="$(cd && pwd)"
+DESKTOP_PATH="$HOME_PATH/Desktop"
+SAVE_PATH="$DESKTOP_PATH/$USER_TODO_FILE"
 
 # Array para armazenar as respostas dinâmicamente
 declare -A USER_ANSWERS
@@ -22,16 +25,17 @@ question_system_will_ask() {
 }
 
 save_user_answers() {
-    # Limpa o arquivo antes de iniciar o processo de salvar
-    > "$USER_TODO_FILE"
 
-    echo "====== Suas Respostas ======" > "$USER_TODO_FILE"
+    # Limpa o arquivo antes de iniciar o processo de salvar
+    > "$SAVE_PATH"
+
+    echo "====== Suas Respostas ======" > "$SAVE_PATH"
 
     for question_key in "${QUESTION_ORDER[@]}"; do
-        echo "$question_key: \"${USER_ANSWERS[$question_key]}\"" >> "$USER_TODO_FILE"
+        echo "$question_key: \"${USER_ANSWERS[$question_key]}\"" >> "$SAVE_PATH"
     done
 
-    echo "Todas as respostas foram salvas em $USER_TODO_FILE" 
+    echo "Todas as respostas foram salvas em $SAVE_PATH" 
 }
 
 
@@ -54,4 +58,5 @@ devHelper(){
     project_type
     language
     save_user_answers
+
 }
