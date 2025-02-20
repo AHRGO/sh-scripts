@@ -22,7 +22,7 @@ finish_and_save_answer() {
 
 }
 
-main(){
+devHelper(){
     project_type
     finish_and_save_answer
 }

@@ -26,6 +26,9 @@ verifies_and_import() {
 
 # IMPORTS
 
+## Dev Helper
+verifies_and_import dev-helper script.sh
+
 ## Alias File
 verifies_and_import ./ aliases.sh
 
