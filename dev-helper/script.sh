@@ -64,13 +64,40 @@ how_many_steps_will_you_need() {
     question_system_will_ask "quantidade_passos" "Em quantas etapas você vai dividir esse problema?"
 } 
 
+# BUGADO SABE-SE LÁ PORQUE DIABOS
 what_are_these_steps() {
     question_system_will_ask "passos" "Quais são essas estapas?"
 }
 
+# Implementar um 5W2H, só pra ter
+who_asked_for_this() {
+    question_system_will_ask "quem" "Quem pediu por isso?"
+}
+
+why_this() {
+    question_system_will_ask "porque" "Porque isso foi pedido"?
+}
 
 
+what_this() {
+    question_system_will_ask "oque" "O quê é isso?"
+}
 
+where_is_this() {
+    question_system_will_ask "onde" "Onde é isso?"
+}
+
+when_is_this() {
+    question_system_will_ask "quando" "Quando vai ser isso?"
+}
+
+how_is_this() {
+    question_system_will_ask "comc" "Como isso vai ser feito?"
+}
+
+how_much_is_this() {
+    question_system_will_ask "quanto-custa" "Quanto isso custa"
+}
 
 # WRAPPER
 questions_to_ask_to_developer() {
@@ -78,6 +105,9 @@ questions_to_ask_to_developer() {
     you_know_how_to_fix_it
     how_many_steps_will_you_need
     what_are_these_steps
+    language
+    project_type
+
 }
 
 
