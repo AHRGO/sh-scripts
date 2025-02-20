@@ -40,6 +40,8 @@ save_user_answers() {
 
 
 # QUESTIONS SECTION
+
+# NEW PROJECT
 project_type() {
     question_system_will_ask "tipo_de_projeto" "Qual é o tipo de projeto que você deseja criar?"
 }
@@ -49,10 +51,33 @@ language() {
 }
 
 
+#BUGFIX
+what_you_should_fix() {
+    question_system_will_ask "problema" "Qual é o problema que você deve resolver?"
+}
+
+you_know_how_to_fix_it() {
+    question_system_will_ask "sabe_resolver" "Você sabe como resolver esse problema?"
+}
+
+how_many_steps_will_you_need() {
+    question_system_will_ask "quantidade_passos" "Em quantas etapas você vai dividir esse problema?"
+} 
+
+what_are_these_steps() {
+    question_system_will_ask "passos" "Quais são essas estapas?"
+}
+
+
+
+
+
 # WRAPPER
 questions_to_ask_to_developer() {
-    project_type
-    language
+    what_you_should_fix
+    you_know_how_to_fix_it
+    how_many_steps_will_you_need
+    what_are_these_steps
 }
 
 
